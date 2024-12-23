@@ -110,47 +110,61 @@ Logs are stored in `app.log`. Use this as the main file to observe the outputs.
 ## Methodologies
 
 1. Document Processing
-    Objective: To extract, clean, and structure the content from the GDPR articles PDF into a format suitable for retrieval and analysis.
-    Techniques Used:
+   
+    **Objective:** To extract, clean, and structure the content from the GDPR articles PDF into a format suitable for retrieval and analysis.
+   
+    **Techniques Used:**
         Text Extraction: The PyPDF2 library is used to extract raw text from the PDF document.
         Text Cleaning: Headers, footers, and page numbers are removed using regular expressions and predefined patterns.
         Segmentation: The document is segmented into articles and further divided into sections. Articles are identified based on patterns like Article X, and sections are identified by numbered or lettered subpoints (e.g., 1., a)).
         Recursive Text Splitting: The content is split into manageable chunks using the RecursiveCharacterTextSplitter from langchain, ensuring optimal chunk size for embedding generation.
-2. Vectorization and Semantic Embedding
-    Objective: To encode articles and sections into vector representations for semantic search.
-    Techniques Used:
+3. Vectorization and Semantic Embedding
+
+    **Objective:** To encode articles and sections into vector representations for semantic search.
+   
+    **Techniques Used:**
         Sentence Transformers: A pre-trained model (all-MiniLM-L6-v2) encodes the text into dense embeddings.
         Chunk-Level Embedding: Each chunk of text, including article summaries and sections, is vectorized to create a high-dimensional representation capturing semantic meaning.
-3. Vector Store and Retrieval
-    Objective: To efficiently retrieve the most relevant text chunks for a user query.
-    Techniques Used:
+5. Vector Store and Retrieval
+   
+    **Objective:** To efficiently retrieve the most relevant text chunks for a user query.
+   
+    **Techniques Used:**
         FAISS Index: Embeddings are stored in a FAISS index for fast similarity search using nearest-neighbor retrieval.
         Reranking: Results are reranked based on semantic relevance using the FlashRank library. This enhances the quality of retrieved results by prioritizing the most contextually relevant passages.
-4. Question Answering (QA)
-    Objective: To generate concise and accurate answers to user queries using retrieved context.
-    Techniques Used:
+7. Question Answering (QA)
+   
+    **Objective:** To generate concise and accurate answers to user queries using retrieved context.
+   
+    **Techniques Used:**
         Context-Building: Top relevant chunks are combined to form a comprehensive context for the question.
         Prompt Engineering: A structured prompt ensures that the model adheres to constraints like citing articles, remaining concise, and avoiding speculation.
-5. Evaluation
-    Objective: To quantitatively measure the performance of the system in retrieving and answering questions.
-    Techniques Used:
+9. Evaluation
+    
+    **Objective:** To quantitatively measure the performance of the system in retrieving and answering questions.
+   
+    **Techniques Used:**
     Retrieval Evaluation: Measures the relevance of retrieved chunks based on similarity scores.
-    Answer Evaluation:
+   
+   ** Answer Evaluation:**
         BLEU: Evaluates the overlap between the generated response and the reference response.
         ROUGE: Measures recall-oriented overlap of n-grams and sequences.
         BERT Score: Uses embeddings to calculate semantic similarity between generated and reference answers.
         METEOR and CHRF: Measure linguistic and semantic adequacy.
         Readability Analysis: Assesses readability of generated answers using Flesch Reading Ease and Flesch-Kincaid Grade metrics.
-6. System Modularity
-    Objective: To ensure the system is flexible and adaptable to other domains or documents.
-    Techniques Used:
+11. System Modularity
+    
+    **Objective:** To ensure the system is flexible and adaptable to other domains or documents.
+    
+    **Techniques Used:**
         Reusable Components: The system is divided into modular components (e.g., doc_processor, vec_processor, qa_processor) that can be independently modified.
         Parameterized Execution: Command-line arguments allow users to control features like rebuilding the database or running evaluations without altering the codebase.
-7. Logging and Debugging
-    Objective: To provide transparency and facilitate debugging.
-    Techniques Used:
+13. Logging and Debugging
+    
+    **Objective:** To provide transparency and facilitate debugging.
+    
+    **Techniques Used:**
         A logging system records events, errors, and system activities in real time.
-
 
 ## Process Flow
 
