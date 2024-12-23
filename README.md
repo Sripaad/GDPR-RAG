@@ -69,6 +69,7 @@ To start the interactive question-answering system
 python3 main.py
 ```
 **Note:** The faiss database is built the first time and to rebuild it use `--rebuild` flag.
+Use `app.log` to keep track of conversations
 ## Evaluations
 
 The system is evaluated on a predefined test set(sample_questions.md):
