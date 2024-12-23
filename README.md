@@ -31,7 +31,7 @@ src/
 ├── data/
 │   ├── article_summaries.json    # Summaries of GDPR articles
 │   ├── gdpr_articles.pdf         # Source document containing GDPR articles
-├── app.log                       # Main Log file for tracking execution // Here is where the correct formatted step by step output is
+├── app.log                       # Main Log file for tracking execution 
 ├── config.py                     # Configuration setup (e.g., API keys)
 ├── doc_processor.py              # Handles document parsing and chunking
 ├── eval_processor.py             # Handles evaluation metrics
