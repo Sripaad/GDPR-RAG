@@ -48,12 +48,12 @@ src/
 ## Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Setup
 
-Create a `.env` file, add your OpenAI API key
+In the `.env` file, add your OpenAI API key
 
 ```bash
 OPENAI_API_KEY=your_api_key_here
@@ -63,13 +63,14 @@ OPENAI_API_KEY=your_api_key_here
 
 ### Running the Application
 
-To start the interactive question-answering system
+To start the interactive question-answering system, from the `src` folder run
 
 ```python3
 python3 main.py
 ```
-**Note:** The faiss database is built the first time and to rebuild it use `--rebuild` flag.
+**Note:** The faiss database gets built the first time and to rebuild it use `--rebuild` flag.
 Use `app.log` to keep track of conversations
+
 ## Evaluations
 
 The system is evaluated on a predefined test set(sample_questions.md):
