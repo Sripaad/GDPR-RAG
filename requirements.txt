@@ -1,0 +1,14 @@
+transformers 
+sentence-transformers
+faiss-cpu
+PyPDF2
+numpy
+pandas
+pydantic-settings
+langchain-text-splitters
+flashrank
+sacrebleu
+rouge-score
+bert-score
+nltk
+textstat
